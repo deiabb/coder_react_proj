@@ -1,0 +1,65 @@
+.navBar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color:#ffffff;
+    width: 100vw;
+    justify-content: center;
+    padding-top: 1.25rem;
+    box-shadow: 0 10px 15px -3px #ddd, 0 4px 6px -2px #ddd;
+}
+.navList {
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80vw;
+    align-items: center;
+}
+
+.navCategory {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.navLink {
+    font-weight: 600;
+}
+.navLink:visited {
+    color: #F257AC;
+    text-decoration: none;
+}
+
+.logo {
+    margin-right: 5rem;
+    height: 70px;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+  
+    position: fixed;
+}
+
+.title {
+    margin-left: 50px;
+    width: 200px;
+}
+
+.search {
+    width: 50vw;
+    border: none;
+    padding-left: 1rem;
+}
+
+.btnSearch {
+    background-color: #ffffff;
+    border: 1px solid rgb(184, 186, 190);
+    display: flex;
+    align-items: center;
+    height: 45px;
+    border-radius: 15px;
+    margin-right: 2rem;
+}

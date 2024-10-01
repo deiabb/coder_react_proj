@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import Teste from './components/Teste'
+import NavBar from './components/NavBar'
+import ItemListContainer from './components/ItemListContainer'
+
 
 
 function App() {
@@ -8,7 +10,8 @@ function App() {
 
   return (
     <>
-      <Teste nome="Deborah"/>
+      <NavBar/>
+      <ItemListContainer greeting="Olá Estranho"/>
     </>
   )
 }
