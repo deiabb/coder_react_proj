@@ -1,0 +1,20 @@
+
+.productsArea {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 4rem;
+}
+
+.productDescription {
+    font-size: 14px;
+    color: black;
+}
+
+.btnDescription {
+    border: none;
+    background-color: #b9bf045c;
+    height: 30px;
+    width: 200px;
+}
