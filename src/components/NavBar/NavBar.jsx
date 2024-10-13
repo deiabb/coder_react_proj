@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './NavBar.module.css';
 import logo from './../../assets/Qlogo.png';
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
     return (
@@ -9,26 +10,31 @@ export default function NavBar() {
            
             <ul className={styles.navList}>
             <li className={styles.navCategory}> 
-                <a className={styles.navLink} href="">Tudo</a>
+                <Link to="/coder_react_proj">Home</Link>
+                {/* <a className={styles.navLink} href="">Tudo</a> */}
             </li>
             <li className={styles.navCategory}>
-                <a className={styles.navLink} href="">Papelaria</a>
-                
+                <Link to="/coder_react_proj/papelaria" >Papelaria</Link>
+                {/* <a className={styles.navLink} href="">Papelaria</a> */}
             </li>
             <li className={styles.navCategory}>
-                <a className={styles.navLink} href="">Artes</a>
+                <Link to="/coder_react_proj/artes" >Artes</Link>
+                {/* <a className={styles.navLink} href="">Artes</a> */}
             </li>
             <img className={styles.logo} src={logo} alt="" />
            
             
             <li className={styles.navCategory}>
-                <a className={styles.navLink} href="">Estojos</a>
+                <Link to="/coder_react_proj/estojos" >Estojos</Link>
+                {/* <a className={styles.navLink} href="">Estojos</a> */}
             </li>
             <li className={styles.navCategory}>
-                <a className={styles.navLink} href="">Cadernos</a>
+                <Link to="/coder_react_proj/cadernos" >Cadernos</Link>
+                {/* <a className={styles.navLink} href="">Cadernos</a> */}
             </li>
             <li className={styles.navCategory}>
-                <a className={styles.navLink} href="">Agendas</a>
+                <Link to="/coder_react_proj/agendas" >Agendas</Link>
+                {/* <a className={styles.navLink} href="">Agendas</a> */}
             </li>
             </ul>
            

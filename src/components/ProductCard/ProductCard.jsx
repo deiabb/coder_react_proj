@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './ProductCard.module.css'
+import ItemCount from '../ItemCount/ItemCount';
 
 export default function ProductCard({id, title, price, thumbnail}){
+  
     
     return (
         <>
@@ -14,7 +16,7 @@ export default function ProductCard({id, title, price, thumbnail}){
                     <h2 className={styles.cardTitle}>{title}</h2>
                     <h2 className={styles.cardPrice}>R$ {price}</h2> 
                 </div>
-                <button type='button' className={styles.btnAddCard}>Comprar</button>
+                <ItemCount />
             </div>
            
         </>
