@@ -4,6 +4,7 @@ import NavBar from './components/NavBar/NavBar'
 import Products from './components/Products/Products'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './components/Home/Home'
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       <BrowserRouter>
         <NavBar/>
         <Routes>
-          <Route path='/coder_react_proj' element={<>Home</>} />
+          <Route path='/coder_react_proj' element={<Home/>} />
           <Route path='/coder_react_proj/papelaria' element={<Products/>} />
           <Route path='/coder_react_proj/artes' element={<>Artes</>} />
           <Route path='/coder_react_proj/estojos' element={<>Estojos</>} />
