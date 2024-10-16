@@ -33,7 +33,7 @@ export default function ItemCount({id, available_quantity}){
                     </button>
                 </div>
             
-                <button>Adicionar ao carrinho</button>
+                <button className={styles.btnCompra} >Comprar</button>
 
             </div>
             

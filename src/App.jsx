@@ -5,6 +5,7 @@ import Products from './components/Products/Products'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home/Home'
+import ProductDetail from './components/ProductDetail/ProductDetail'
 
 
 function App() {
@@ -21,10 +22,9 @@ function App() {
           <Route path='/coder_react_proj/cadernos' element={<>Cadernos</>} />
           <Route path='/coder_react_proj/agendas' element={<>Agendas</>} />
           <Route path='/coder_react_proj/checkout' element={<>Checkout</>} />
+          <Route path='/coder_react_proj/product/:id' element={<ProductDetail/>}/>
         </Routes>
       </BrowserRouter>
-      {/* <NavBar/>
-      <Products/> */}
     </>
   )
 }
