@@ -7,16 +7,15 @@ export default function ProductDetail() {
   const [product, setProduct] = useState({});
 
   useEffect(() => {
-    fetch(`https://api.mercadolibre.com/items/${id}`)
+    fetch(`https://api.mercadolibre.com/sites/MLB/search?q=papelaria/${id}`)
     .then((response) => response.json())
     .then((data) => {
-        setProduct(data.results.items)
+        setProduct(data.results)
     })
   }, []);
+  console.log(product) //isso funciona, ele me devolve um array de objetos, mas não estou conseguindo acessar o título 
 
   return (
-    <>
-      <h2>{product.title}</h2>
-    </>
+    <div><h1>{product.title}</h1></div>
   );
 }
