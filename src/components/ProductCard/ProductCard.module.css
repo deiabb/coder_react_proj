@@ -37,3 +37,13 @@
     height: 30px;
     width: 200px;
 }
+
+.btnCompra {
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    border: 0;
+    background-color: rgb(2, 107, 255);
+    color: rgb(254, 254, 254);
+    font-weight: 800;
+}

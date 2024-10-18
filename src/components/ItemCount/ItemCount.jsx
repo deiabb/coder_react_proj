@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styles from './ItemCount.module.css'
 
 export default function ItemCount({id, available_quantity}){
+    
+
     let [count, setCount] = useState(0);
     function aumenta() {
         if (count !== available_quantity) {

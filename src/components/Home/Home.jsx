@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from "./Home.module.css";
+
 
 export default function Home() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  
 
   useEffect(() => {
     setLoading(true);
