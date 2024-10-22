@@ -18,6 +18,10 @@ export default function NavBar() {
                 {/* <a className={styles.navLink} href="">Papelaria</a> */}
             </li>
             <li className={styles.navCategory}>
+                <Link to="/coder_react_proj/cart" >Carrinho</Link>
+                
+            </li>
+            <li className={styles.navCategory}>
                 <Link to="/coder_react_proj/artes" >Artes</Link>
                 {/* <a className={styles.navLink} href="">Artes</a> */}
             </li>

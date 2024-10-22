@@ -11,7 +11,7 @@ import Cart from "./components/Cart/Cart";
 
 
 function App() {
-  const [cart, setCart] = useState("Olá estou sendo usado");
+  const [cart, setCart] = useState([]);
   const value = {
     cart,
     setCart
@@ -25,6 +25,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path="/coder_react_proj" element={<Home />} />
+            <Route path="/coder_react_proj/cart" element={<Cart/>}/>
             <Route path="/coder_react_proj/papelaria" element={<></>} />
             <Route path="/coder_react_proj/artes" element={<>Artes</>} />
             <Route path="/coder_react_proj/estojos" element={<>Estojos</>} />
