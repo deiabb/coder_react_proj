@@ -2,21 +2,30 @@ import React, { useContext, useEffect, useState } from "react";
 import styles from "./ProductDetail.module.css";
 import { useParams } from "react-router-dom";
 import CartContext from "../../CartContext";
+import bancoDados from "../../Firestore";
+import { doc, getDoc } from "firebase/firestore";
 
 
 export default function ProductDetail() {
   const { id } = useParams();
-  const [product, setProduct] = useState({});
+  const [produto, setProduto] = useState({});
   const [quantity, setQuantity] = useState(1);
+  // const [loading, setLoading] = useState(false)
 
   const {cart, setCart} = useContext(CartContext);
 
   useEffect(() => {
-    fetch(`https://api.mercadolibre.com/items/${id}`)
-    .then((response) => response.json())
-    .then((data) => {
-        setProduct(data)
-    })
+    
+    (async function() {
+      const referenciaDoc = doc(bancoDados, "produtos", id);
+
+      const produtoSnapshot = await getDoc(referenciaDoc);
+
+      const produto = produtoSnapshot.data();
+      setProduto(produto);
+      
+    })()
+  
   }, []);
   
   //isso funciona, ele me devolve um array de objetos, mas não estou conseguindo acessar o título 
@@ -30,14 +39,14 @@ export default function ProductDetail() {
   }
 
   const handleAddItem = () => {
-    setCart([...cart, {...product, quantity}]);
+    setCart([...cart, {...produto, quantity}]);
   };
 
   return (
     <div>
-      <img src={product.thumbnail}/>
-      <h3>{product.title}</h3>
-      <h4>R$ {product.price}</h4>
+      <img width="150px" src={produto.imgUrl}/>
+      <h3>{produto.nome}</h3>
+      <h4>R$ {produto.preco}</h4>
       <input
       value={quantity} 
       type='number' 

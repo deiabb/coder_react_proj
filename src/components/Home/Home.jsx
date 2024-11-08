@@ -1,24 +1,32 @@
 import React, { useState, useEffect, useContext } from "react";
 import ProductCard from "../ProductCard/ProductCard";
 import styles from "./Home.module.css";
+import { collection, getDocs } from "firebase/firestore";
+import bancoDados from "../../Firestore";
 
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
+  const [produtos, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
   
-
+//useEffect não aceita funções assíncronas
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
-      fetch(`https://api.mercadolibre.com/sites/MLB/search?q=papelaria`)
-        .then((response) => response.json())
-        .then((data) => {
-          setProducts(data.results);
-          setLoading(false);
-        });
-    }, 500);
+    (async function(){
+      const produtosCol = collection(bancoDados, 'produtos');
+      const produtosSnapshot = await getDocs(produtosCol);
+
+      const produtos = produtosSnapshot.docs.map((documentos) => {
+        return {
+          id: documentos.id, 
+          ...documentos.data(),
+        }
+      });
+      setProducts(produtos)
+      setLoading(false)
+    })();
+    
   }, []);
 
   return (
@@ -28,13 +36,13 @@ export default function Home() {
         {loading ? (
           <h1>Carregandooo...</h1>
         ) : (
-          products.map(({ id, title, price, thumbnail }) => (
+          produtos.map(({ id, nome, categoria, descricao,  preco, imgUrl }) => (
             <ProductCard
               key={id}
               id={id}
-              title={title}
-              price={price}
-              thumbnail={thumbnail}
+              nome={nome}
+              preco={preco}
+              imagem={imgUrl}
             />
             
           ))
