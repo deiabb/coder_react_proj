@@ -8,10 +8,13 @@ export default function Cart() {
             <h1>Cart</h1>
             <ul>    
                 {
-                    cart.map(product => 
-                        <li>{`${product.title} x ${product.quantity}`}</li>
+                    cart.map(produto => 
+                        <li key={produto.id} >{`${produto.nome} - R$${produto.preco} x ${produto.quantidade} -  Valor total: R$${produto.preco * produto.quantidade}`}</li>
                     )
                 }
+                Total R$ {cart.reduce((valorAnterior, valorAtual) => {
+                    return valorAnterior + valorAtual.quantidade * valorAtual.preco.toFixed(2)
+                }, 0)}
             </ul>
             
         </>

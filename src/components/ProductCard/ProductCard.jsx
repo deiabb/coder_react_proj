@@ -1,24 +1,22 @@
 import React, { useState, useContext } from 'react';
 import styles from './ProductCard.module.css'
-import ItemCount from '../ItemCount/ItemCount';
+
 import { Link } from 'react-router-dom';
 
 
 export default function ProductCard({id, nome, preco, imagem, estoque}){
-  const [quantity, setQuantity] = useState(1);
+  const [quantidade, setQuantidade] = useState(1);
  
   
+  const handleChangeQuantidade = (e) => {
+    const novaQuantidade = Number(e.target.value);
     
-  
-  const handleChangeQuantity = (e) => {
-    const newQuantity = Number(e.target.value);
-    
-        if (newQuantity >= 1) {
-            setQuantity(newQuantity)
+        if (novaQuantidade >= 1) {
+            setQuantidade(novaQuantidade)
         }
         
 
-    console.log(newQuantity)
+    console.log(novaQuantidade)
 
   }
     
@@ -39,9 +37,9 @@ export default function ProductCard({id, nome, preco, imagem, estoque}){
                 </div>
               
                 <input
-                 value={quantity} 
+                 value={quantidade} 
                  type='number' 
-                 onChange={handleChangeQuantity} />
+                 onChange={handleChangeQuantidade} />
                  <Link to={`/coder_react_proj/cart`}>
                     <button className={styles.btnCompra} >Comprar</button>
                  </Link>
