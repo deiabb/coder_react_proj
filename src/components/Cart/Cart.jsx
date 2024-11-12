@@ -12,7 +12,7 @@ function CartItem({nome, quantidade, id}) {
 
     }
 
-    
+
     return (
         <li >{`${nome} X ${quantidade}`}
         <button onClick={() => handleRemoveItem(id)} >Remover item</button>
@@ -22,7 +22,7 @@ function CartItem({nome, quantidade, id}) {
 }
 
 export default function Cart() {
-    const {cart, setCart} = useContext(CartContext)
+    const {cart} = useContext(CartContext)
 
 
     return (
@@ -30,8 +30,8 @@ export default function Cart() {
             <h1>Cart</h1>
             <ul>
                 {cart?.length === 0 && "Seu carrinho está vazio!    "}    
-                {cart?.map(produto => 
-                        <CartItem id={produto.id} nome={produto.nome} quantidade={produto.quantidade}/>
+                {cart?.map(({id, nome, quantidade}) => 
+                        <CartItem id={id} nome={nome} quantidade={quantidade}/>
                     )
                 }
                 Total R$ {cart.reduce((valorAnterior, valorAtual) => {
