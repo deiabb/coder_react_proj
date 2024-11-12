@@ -1,26 +1,20 @@
-import {useState, createContext} from "react";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
-import CartContext from "./CartContext";
+import { CartProvider } from "./CartContext";
 import Cart from "./components/Cart/Cart";
 
 
 
 function App() {
-  const [cart, setCart] = useState([]);
-  const value = {
-    cart,
-    setCart
-  }
+ 
 
   return (
     <>
-      <CartContext.Provider 
-      value={value} >
+      <CartProvider>
         <BrowserRouter>
           <NavBar />
           <Routes>
@@ -39,7 +33,7 @@ function App() {
             <Route path="/coder_react_proj/cart" element={<Cart/>}/>
           </Routes>
         </BrowserRouter>
-      </CartContext.Provider>
+      </CartProvider>
     </>
   );
 }
