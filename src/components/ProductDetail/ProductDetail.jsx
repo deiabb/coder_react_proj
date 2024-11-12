@@ -41,6 +41,7 @@ export default function ProductDetail() {
 
   const handleAddItem = () => {
     setCart([...cart, {...produto, quantidade, id}]);
+    
   };
 
   return (
